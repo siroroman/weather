@@ -18,7 +18,7 @@ class LocationManager: NSObject {
     override init() {
         super.init()
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyKilometer
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }
 
     func requestAuthorization() {
@@ -40,10 +40,16 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             if let currentLocationChanged = self.currentLocationChanged {
+                stopUpdatingLocation()
                 print(location.coordinate)
                 currentLocationChanged(location.coordinate)
             }
         }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else {return}
+        startUpdatingLocation()
     }
     
 }

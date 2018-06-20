@@ -21,6 +21,7 @@ class WeatherWebService {
     private func url(coordinate: CLLocationCoordinate2D) -> String {
         let baseURL = "http://api.openweathermap.org"
         let appID = "33529d0203a6eba27e18e70e501a02c3"
-        return "\(baseURL)/data/2.5/weather?lat=\(coordinate.latitude)&lon=\(coordinate.longitude)&APPID=\(appID)&units=metric&lang=cz"
+        
+        return "\(baseURL)/data/2.5/weather?lat=\(coordinate.latitude)&lon=\(coordinate.longitude)&APPID=\(appID)&units=metric"
     }
 }

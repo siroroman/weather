@@ -12,13 +12,13 @@ class GradientView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        applyGradient()
+        makeGradient()
     }
 
-    private func applyGradient() {
+    private func makeGradient() {
         let topColor = UIColor.hexStringToUIColor(hex: "3f93c9")
         let bottomColor = UIColor.hexStringToUIColor(hex: "73bae1")
         fillWithGradient(startColor: topColor, endColor: bottomColor, startPoint: CGPoint(x: 0, y: 0), endPoint: CGPoint(x: 0, y: 1))
     }
-    
+
 }
