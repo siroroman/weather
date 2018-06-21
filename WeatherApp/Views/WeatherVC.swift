@@ -15,7 +15,8 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     private let viewModel = WeatherVM()
 
     override func viewDidLoad() {
@@ -23,7 +24,11 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
 
         resetLabelTexts()
         viewModel.didUpdateData = reloadData
-        viewModel.reloadData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        update()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,7 +38,13 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
         destinationVC.viewModel = MapVM(coordinate: coordinate)
     }
 
+    private func update() {
+        activityIndicator.startAnimating()
+        viewModel.reloadData()
+    }
+
     private func reloadData() {
+        activityIndicator.stopAnimating()
         placeLabel.text = viewModel.currentWeather.place
         timeLabel.text = viewModel.currentWeather.time
         temperatureLabel.text = viewModel.currentWeather.temperature
@@ -48,16 +59,15 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
     }
 
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         cell.cellData = viewModel.currentWeather.detailItems[indexPath.item]
         return cell
     }
-    
 }
 
 

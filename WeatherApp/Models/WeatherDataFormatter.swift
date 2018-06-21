@@ -52,7 +52,7 @@ class WeatherDataFormatter {
 
     func formatedPressure() -> String {
         guard let pressure = data?.pressure else {return unavailableText}
-        return String(format: "%0.d MPa", pressure)
+        return String(format: "%0.d hPa", pressure)
     }
 
     func formatedHumidity() -> String {

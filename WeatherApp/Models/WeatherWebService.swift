@@ -15,9 +15,13 @@ class WeatherWebService {
     private let appID = "33529d0203a6eba27e18e70e501a02c3"
 
     func loadData(for coordinate: CLLocationCoordinate2D, completion: @escaping (_ data: Data?, _ error: Error?) -> ()) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire
             .request(url(coordinate: coordinate))
-            .responseData {response in completion(response.data, response.error)}
+            .responseData {response in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                completion(response.data, response.error)
+        }
     }
 
     func url(for layer: WeatherMapType) -> String {

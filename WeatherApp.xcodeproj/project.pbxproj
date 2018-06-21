@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		900D141420DAA6F800469ACD /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D141320DAA6F800469ACD /* MapVC.swift */; };
-		900D141620DAA70A00469ACD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D141520DAA70A00469ACD /* LoadingViewController.swift */; };
 		900D141820DAAF9000469ACD /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D141720DAAF9000469ACD /* MapVM.swift */; };
 		900D141A20DABB7400469ACD /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D141920DABB7400469ACD /* RoundButton.swift */; };
 		900D141C20DAC73300469ACD /* WeatherMapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D141B20DAC73300469ACD /* WeatherMapType.swift */; };
@@ -35,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		900D141320DAA6F800469ACD /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
-		900D141520DAA70A00469ACD /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		900D141720DAAF9000469ACD /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
 		900D141920DABB7400469ACD /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		900D141B20DAC73300469ACD /* WeatherMapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMapType.swift; sourceTree = "<group>"; };
@@ -120,7 +118,14 @@
 			isa = PBXGroup;
 			children = (
 				9067CCD720D906AC00F91566 /* LocationManager.swift */,
-				9067CCD920D90B1A00F91566 /* Data */,
+				904DD7F420D956010005569D /* Database.swift */,
+				904DD7F020D947160005569D /* WeatherWebService.swift */,
+				904DD7F220D94FC80005569D /* WeatherData.swift */,
+				904DD7FA20D961460005569D /* WeatherDataProvider.swift */,
+				904DD81120DA7A2A0005569D /* WeatherDataFormatter.swift */,
+				904DD81320DA8B7F0005569D /* WeatherIcon.swift */,
+				904DD81520DA8CB10005569D /* WeatherIconProvider.swift */,
+				900D141B20DAC73300469ACD /* WeatherMapType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,13 +142,12 @@
 		9041F80020D8F98D00D9A813 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				904DD80920D98E720005569D /* GradientView.swift */,
 				9041F7EE20D8F3B200D9A813 /* WeatherVC.swift */,
+				900D141320DAA6F800469ACD /* MapVC.swift */,
 				9041F7F520D8F3B800D9A813 /* LaunchScreen.storyboard */,
 				9041F7F020D8F3B200D9A813 /* Main.storyboard */,
+				904DD80920D98E720005569D /* GradientView.swift */,
 				904DD80F20D9B4EC0005569D /* CollectionViewCell.swift */,
-				900D141320DAA6F800469ACD /* MapVC.swift */,
-				900D141520DAA70A00469ACD /* LoadingViewController.swift */,
 				900D141920DABB7400469ACD /* RoundButton.swift */,
 			);
 			path = Views;
@@ -164,21 +168,6 @@
 				904DD80520D980E10005569D /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9067CCD920D90B1A00F91566 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				904DD7F420D956010005569D /* Database.swift */,
-				904DD7F020D947160005569D /* WeatherWebService.swift */,
-				904DD7F220D94FC80005569D /* WeatherData.swift */,
-				904DD7FA20D961460005569D /* WeatherDataProvider.swift */,
-				904DD81120DA7A2A0005569D /* WeatherDataFormatter.swift */,
-				904DD81320DA8B7F0005569D /* WeatherIcon.swift */,
-				904DD81520DA8CB10005569D /* WeatherIconProvider.swift */,
-				900D141B20DAC73300469ACD /* WeatherMapType.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		FE8EF7A5DC508CF9ED02BCB6 /* Pods */ = {
@@ -330,7 +319,6 @@
 			files = (
 				904DD7F520D956010005569D /* Database.swift in Sources */,
 				904DD81420DA8B800005569D /* WeatherIcon.swift in Sources */,
-				900D141620DAA70A00469ACD /* LoadingViewController.swift in Sources */,
 				904DD7F120D947160005569D /* WeatherWebService.swift in Sources */,
 				900D141A20DABB7400469ACD /* RoundButton.swift in Sources */,
 				904DD81020D9B4EC0005569D /* CollectionViewCell.swift in Sources */,
@@ -495,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E49T3B4D93;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,6 +503,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E49T3B4D93;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import RealmSwift
 import Unbox
 
@@ -29,6 +30,10 @@ class WeatherData: Object, Unboxable {
 
     override static func primaryKey() -> String? {
         return "id"
+    }
+
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
     required  convenience init(unboxer: Unboxer) throws {
