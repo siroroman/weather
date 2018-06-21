@@ -190,33 +190,64 @@
         <!--MapVC-->
         <scene sceneID="4Kw-A8-Vu7">
             <objects>
-                <viewController storyboardIdentifier="MapVC" modalTransitionStyle="flipHorizontal" id="xkJ-in-y2X" customClass="MapVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapVC" modalTransitionStyle="crossDissolve" id="xkJ-in-y2X" customClass="MapVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dqs-tn-cxl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v70-oH-TOo" customClass="RoundButton" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="275" y="40" width="80" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8v-Gz-Si2" customClass="GradientView" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="bAv-A3-ybZ"/>
+                                    <constraint firstAttribute="height" constant="100" id="Mba-rA-d2b"/>
                                 </constraints>
-                                <state key="normal" title="Close"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v70-oH-TOo">
+                                <rect key="frame" x="316" y="20" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="X0z-LF-XAM"/>
+                                </constraints>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="closeButtonTapped" destination="wLa-gh-hl1" eventType="touchUpInside" id="LOI-nb-qwi"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Oc0-gu-qfa">
+                                <rect key="frame" x="20" y="60" width="335" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="Percipitation"/>
+                                    <segment title="Clouds"/>
+                                    <segment title="Pressure"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="xkJ-in-y2X" eventType="valueChanged" id="gJU-yr-jD6"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FEZ-Y7-zBC" firstAttribute="trailing" secondItem="v70-oH-TOo" secondAttribute="trailing" constant="20" id="bsA-XQ-3C8"/>
-                            <constraint firstItem="v70-oH-TOo" firstAttribute="top" secondItem="FEZ-Y7-zBC" secondAttribute="top" constant="20" id="qNP-NN-Uxp"/>
+                            <constraint firstItem="v70-oH-TOo" firstAttribute="top" secondItem="FEZ-Y7-zBC" secondAttribute="top" id="HT3-66-AmN"/>
+                            <constraint firstItem="l8v-Gz-Si2" firstAttribute="leading" secondItem="FEZ-Y7-zBC" secondAttribute="leading" id="NU3-zP-Mj4"/>
+                            <constraint firstItem="Oc0-gu-qfa" firstAttribute="leading" secondItem="FEZ-Y7-zBC" secondAttribute="leading" constant="20" id="RIn-b8-cqz"/>
+                            <constraint firstItem="FEZ-Y7-zBC" firstAttribute="trailing" secondItem="Oc0-gu-qfa" secondAttribute="trailing" constant="20" id="bJ1-Kh-GIj"/>
+                            <constraint firstItem="Oc0-gu-qfa" firstAttribute="top" secondItem="v70-oH-TOo" secondAttribute="bottom" constant="10" id="l4u-o4-DRa"/>
+                            <constraint firstItem="l8v-Gz-Si2" firstAttribute="trailing" secondItem="FEZ-Y7-zBC" secondAttribute="trailing" id="m1w-4g-FzG"/>
+                            <constraint firstItem="FEZ-Y7-zBC" firstAttribute="trailing" secondItem="v70-oH-TOo" secondAttribute="trailing" constant="20" id="nVi-5e-c6Q"/>
+                            <constraint firstItem="l8v-Gz-Si2" firstAttribute="top" secondItem="dqs-tn-cxl" secondAttribute="top" id="qyH-Om-12M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FEZ-Y7-zBC"/>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="Oc0-gu-qfa" id="hll-qs-0Rm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wLa-gh-hl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905" y="41"/>
+            <point key="canvasLocation" x="904.79999999999995" y="40.929535232383813"/>
         </scene>
     </scenes>
     <resources>
