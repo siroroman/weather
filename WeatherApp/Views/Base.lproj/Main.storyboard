@@ -226,7 +226,7 @@
                                 <rect key="frame" x="20" y="60" width="335" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
-                                    <segment title="Percipitation"/>
+                                    <segment title="Precipitation"/>
                                     <segment title="Clouds"/>
                                     <segment title="Pressure"/>
                                 </segments>
