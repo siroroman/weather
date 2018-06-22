@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.25490196078431371" green="0.71372549019607845" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Blue"/>
                         <constraints>
                             <constraint firstItem="gnK-Xe-KH4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="8Fe-EH-LAx"/>
                             <constraint firstItem="Lbb-Gs-Sh7" firstAttribute="top" secondItem="gnK-Xe-KH4" secondAttribute="bottom" id="BVb-uB-xcG"/>
@@ -48,5 +49,8 @@
     </scenes>
     <resources>
         <image name="sun" width="256" height="256"/>
+        <namedColor name="Blue">
+            <color red="0.25499999523162842" green="0.71399998664855957" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

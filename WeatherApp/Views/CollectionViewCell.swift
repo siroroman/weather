@@ -32,7 +32,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
+        contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.150000006)
         layer.cornerRadius = 4
         clipsToBounds = true
     }
