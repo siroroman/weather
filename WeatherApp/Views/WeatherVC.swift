@@ -24,6 +24,7 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
 
         resetLabelTexts()
         viewModel.didUpdateData = reloadData
+        viewModel.didStartUpdatingData = showActivityIndicator
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,18 +40,26 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
     }
 
     private func update() {
-        activityIndicator.startAnimating()
         viewModel.reloadData()
     }
 
     private func reloadData() {
-        activityIndicator.stopAnimating()
+        hideActivityIndicator()
+
         placeLabel.text = viewModel.currentWeather.place
         timeLabel.text = viewModel.currentWeather.time
         temperatureLabel.text = viewModel.currentWeather.temperature
         icon.image = UIImage(named: viewModel.currentWeather.iconName)
 
         collectionView.reloadData()
+    }
+
+    private func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
 
     private func resetLabelTexts() {
@@ -60,7 +69,7 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
 
 
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return viewModel.currentWeather.detailItems.count
     }
 
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,6 +77,7 @@ class WeatherVC: UIViewController, UICollectionViewDataSource {
         cell.cellData = viewModel.currentWeather.detailItems[indexPath.item]
         return cell
     }
+    
 }
 
 

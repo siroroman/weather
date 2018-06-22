@@ -9,7 +9,6 @@
 import Foundation
 import CoreLocation
 
-
 struct WeatherItem {
     let place: String
     let time: String
@@ -27,18 +26,32 @@ class WeatherVM {
 
     var currentCoordinate: CLLocationCoordinate2D?
 
+    var didStartUpdatingData: (() -> ())?
     var didUpdateData: (() -> ())?
 
     private var data: WeatherData?
 
     private let locationManager = LocationManager()
 
+    private let debouncer = Debouncer(timeInterval: 0.5)
+
     init() {
         locationManager.currentLocationChanged = currentLocationChanged
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appBecomeActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+
+    deinit {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
     }
 
     func reloadData() {
         getLocation()
+    }
+
+    @objc func appBecomeActive() {
+        reloadData()
     }
 
     private func getLocation() {
@@ -49,10 +62,12 @@ class WeatherVM {
     private func currentLocationChanged(coordinate: CLLocationCoordinate2D) {
         currentCoordinate = coordinate
         locationManager.stopUpdatingLocation()
-        reloadData(for: coordinate)
+        debouncer.handler = { self.reloadData(for: coordinate)}
+        debouncer.renewInterval()
     }
 
     private func reloadData(for coordinate: CLLocationCoordinate2D ) {
+        self.didStartUpdatingData?()
         let dataProvider = WeatherDataProvider(coordinate: coordinate)
         dataProvider.data {data , error in
             self.data = data
