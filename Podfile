@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'WeatherApp' do
    use_frameworks!
-   pod 'Alamofire'
+   pod 'Alamofire', '~> 4.7'
    pod 'Unbox'
    pod 'Mapbox-iOS-SDK'
    pod 'RealmSwift' 

@@ -21,7 +21,7 @@ class WeatherWebService {
             .responseData {response in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion(response.data, response.error)
-        }
+            }
     }
 
     func url(for layer: WeatherMapType) -> String {

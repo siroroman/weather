@@ -16,8 +16,8 @@ class GradientView: UIView {
     }
 
     private func makeGradient() {
-        let topColor = UIColor.hexStringToUIColor(hex: "3f93c9")
-        let bottomColor = UIColor.hexStringToUIColor(hex: "73bae1")
+        let topColor = #colorLiteral(red: 0.2430000007, green: 0.5799999833, blue: 0.7960000038, alpha: 1)
+        let bottomColor = #colorLiteral(red: 0.3959999979, green: 0.7220000029, blue: 0.90200001, alpha: 1)
         fillWithGradient(startColor: topColor, endColor: bottomColor, startPoint: CGPoint(x: 0, y: 0), endPoint: CGPoint(x: 0, y: 1))
     }
 

@@ -20,7 +20,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofh-Gq-3gJ" customClass="GradientView" customModule="WeatherApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaj-QK-gKp">
                                 <rect key="frame" x="325" y="30" width="30" height="30"/>
@@ -40,13 +40,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uno-ZL-eDo">
-                                <rect key="frame" x="161" y="90" width="54" height="26"/>
+                                <rect key="frame" x="161" y="86" width="54" height="26"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LT8-Ym-3Cs">
-                                <rect key="frame" x="20" y="156" width="335" height="130"/>
+                                <rect key="frame" x="20" y="152" width="335" height="130"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nx3-pA-3tW">
                                         <rect key="frame" x="137" y="0.0" width="60" height="60"/>
@@ -76,7 +76,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMc-bX-NDW">
-                                <rect key="frame" x="57.5" y="316" width="260" height="1"/>
+                                <rect key="frame" x="57.5" y="312" width="260" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="O1t-xq-JrA"/>
@@ -84,10 +84,10 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8NG-yg-TFo">
-                                <rect key="frame" x="169" y="166" width="37" height="37"/>
+                                <rect key="frame" x="169" y="162" width="37" height="37"/>
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3uT-qs-hBX">
-                                <rect key="frame" x="57.5" y="347" width="260" height="290"/>
+                                <rect key="frame" x="57.5" y="343" width="260" height="294"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="MrS-ZB-BU2"/>
@@ -154,10 +154,11 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LT8-Ym-3Cs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="118-id-6lS"/>
                             <constraint firstItem="LT8-Ym-3Cs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CJ5-j6-mLn"/>
-                            <constraint firstItem="Uno-ZL-eDo" firstAttribute="top" secondItem="CBe-GG-CM3" secondAttribute="bottom" constant="8" id="JtV-HF-dmU"/>
+                            <constraint firstItem="Uno-ZL-eDo" firstAttribute="top" secondItem="CBe-GG-CM3" secondAttribute="bottom" constant="4" id="JtV-HF-dmU"/>
                             <constraint firstItem="bMc-bX-NDW" firstAttribute="top" secondItem="LT8-Ym-3Cs" secondAttribute="bottom" constant="30" id="Lux-ai-V90"/>
                             <constraint firstItem="3uT-qs-hBX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OXS-g6-ikS"/>
                             <constraint firstItem="CBe-GG-CM3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Omb-zA-rti"/>
@@ -232,12 +233,17 @@
                                     <action selector="segmentedControlValueChanged:" destination="xkJ-in-y2X" eventType="valueChanged" id="gJU-yr-jD6"/>
                                 </connections>
                             </segmentedControl>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="O9O-gQ-TYi">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstItem="O9O-gQ-TYi" firstAttribute="centerX" secondItem="dqs-tn-cxl" secondAttribute="centerX" id="FAT-9v-1Oe"/>
                             <constraint firstItem="v70-oH-TOo" firstAttribute="top" secondItem="FEZ-Y7-zBC" secondAttribute="top" id="HT3-66-AmN"/>
                             <constraint firstItem="l8v-Gz-Si2" firstAttribute="leading" secondItem="FEZ-Y7-zBC" secondAttribute="leading" id="NU3-zP-Mj4"/>
                             <constraint firstItem="Oc0-gu-qfa" firstAttribute="leading" secondItem="FEZ-Y7-zBC" secondAttribute="leading" constant="20" id="RIn-b8-cqz"/>
+                            <constraint firstItem="O9O-gQ-TYi" firstAttribute="centerY" secondItem="dqs-tn-cxl" secondAttribute="centerY" id="Y07-g2-kJ9"/>
                             <constraint firstItem="FEZ-Y7-zBC" firstAttribute="trailing" secondItem="Oc0-gu-qfa" secondAttribute="trailing" constant="20" id="bJ1-Kh-GIj"/>
                             <constraint firstItem="Oc0-gu-qfa" firstAttribute="top" secondItem="v70-oH-TOo" secondAttribute="bottom" constant="10" id="l4u-o4-DRa"/>
                             <constraint firstItem="l8v-Gz-Si2" firstAttribute="trailing" secondItem="FEZ-Y7-zBC" secondAttribute="trailing" id="m1w-4g-FzG"/>
@@ -247,6 +253,7 @@
                         <viewLayoutGuide key="safeArea" id="FEZ-Y7-zBC"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="O9O-gQ-TYi" id="jLQ-9G-MMB"/>
                         <outlet property="segmentedControl" destination="Oc0-gu-qfa" id="hll-qs-0Rm"/>
                     </connections>
                 </viewController>

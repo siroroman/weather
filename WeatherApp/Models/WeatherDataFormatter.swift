@@ -10,7 +10,7 @@ import Foundation
 
 class WeatherDataFormatter {
 
-    let data: WeatherData?
+    private let data: WeatherData?
 
     private let unavailableText = "N/A"
 
